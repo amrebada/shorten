@@ -1,0 +1,31 @@
+version: "3"
+services:
+  app:
+    build: "./shortten-app"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  api:
+    build: "./shortten-api"
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - PORT=5000
+      - MONGO_URL=mongodb://db/shorten
+      - DOMAIN=pbid.io
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+
+  nginx:
+    build: "./nginx"
+    # image: nginx
+    ports:
+      - "8080:8080"
+    depends_on:
+      - app
+      - api
