@@ -1,6 +1,6 @@
 [submodule "shorten-api"]
-	path = shorten-api
+	path = shortten-api
 	url = https://github.com/amrebada/shorten-api
 [submodule "shorten-app"]
-	path = shorten-app
+	path = shortten-app
 	url = https://github.com/amrebada/shorten-app
